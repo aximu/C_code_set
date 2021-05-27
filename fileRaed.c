@@ -27,9 +27,9 @@ int main0()
 	fgets()局限性:只能读取单行，遇到换行符就结束；
 	fread():可读取多行内容；块读取
 */
-
+/*http://c.biancheng.net/cpp/html/2516.html*/
 /*fread() 和 fwrite() 一般用于二进制文件的输入输出*/
-#include <stdio.h>
+
 void main(void)
 {
     FILE* stream = NULL;
@@ -40,7 +40,7 @@ void main(void)
     {
         for (i = 0; i < 25; i++)
             buff[i] = (char)('z' - i);
-        numwritten = fwrite(buff, sizeof(char), 25, stream);
+        numwritten = fwrite(buff, sizeof(char), 25, stream);    //返回实际读取的单元个数
         printf("Wrote %d items\n", numwritten);
         fclose(stream);
     }
@@ -61,3 +61,4 @@ void main(void)
         printf("File could not be opened\n");
     }
 }
+
